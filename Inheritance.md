@@ -191,6 +191,11 @@ boolean bool2 = parent2 instanceof Child; //(true)
   public abstract void method( ~~ );
 ```
 추상 메소드는 무조건 오버라이드 해야함. 안 할 시 컴파일 에러
+```java
+  //어노테이션 
+  @Override
+  public void method( ~~ ) { }
+```
 
 
 
