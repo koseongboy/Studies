@@ -80,6 +80,46 @@ Interface myInstance = new Class();
 public interface Interface1 extends Interface2, Interface3 { }
 ```
 인터페이스 간의 상속 관계에서도 다형성이 적용된다.
+<br>
+부모 인터페이스의 추상 메소드를 오버라이딩 할 필요 없다. (구현하는 "클래스"만 오버라이딩 하면 됨)
 
 
+## 5. 디폴트 메소드
+### 필요성
+나중에 인터페이스에 기능을 추가할 때 {추상 메소드 만들기 -> 구현 클래스에서 오버라이딩} 과정은 번거롭기 때문에 한 번에 디폴트 메소드로 기능 추가
 
+### 상속 받았을 때
+자식 인터페이스가 부모 인터페이스의 디폴트 메소드를 오버라이딩 할 때 자식 인터페이스를 구현하는 클래스는 오버라이딩된 디폴트 메소드를 호출하게 된다.
+```java
+public interface Interface1 {
+  public default void method1() { 
+  System.out.println("1");
+  }
+}
+
+public interface Interface2 extends Interface1 {
+  @Override
+  public default void method1() { 
+    System.out.println("2");
+  }
+}
+
+public class Class1 implements Interface2 { }
+
+Interface2 var = new Class1();
+var.method1(); //출력 결과: 2
+```
+
+<br>
+추상 메소드로 오버라이딩 할 수도 있다.
+
+```java
+public interface Interface1 {
+  public default void method1() { }
+}
+
+public interface Interface2 extends Interface1 {
+  @Override
+  public void method1();
+}
+```
