@@ -50,3 +50,36 @@
 까지만 입력하고 alt + Enter > Enter > ok 하면 자동으로 추상 메소드를 오버라이드 해준다.
 
 
+### 익명 구현 클래스
+한 번만 사용하고 버릴 때 클래스 선언하고 소스 파일 만드는 것은 비효율적 -> 선언 없이 객체 생성
+```java
+Interface myInterface = Interface(){
+  //실체 메소드
+}
+```
+
+### 다중 인터페이스 구현
+
+implements 뒤에 콤마(,)로 구분
+```java
+public class MyClass implements Interface1, Interface2 {
+
+}
+```
+
+## 3. 사용
+구현한 클래스의 객체를 생성할 때 타입은 구현한 인터페이스로 해줘야 한다.
+```java
+Interface myInstance = new Class();
+```
+따라서 상속에서 배웠던 다형성이 그대로 적용된다.
+
+## 4. 상속
+인터페이스는 클래스와 다르게 다중 상속을 허용한다. (extends 뒤에 콤마(,)로 구분)
+```java
+public interface Interface1 extends Interface2, Interface3 { }
+```
+인터페이스 간의 상속 관계에서도 다형성이 적용된다.
+
+
+
