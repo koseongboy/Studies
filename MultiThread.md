@@ -171,6 +171,23 @@ public void run() {
 }
 ```
 
+## 데몬 스레드
+데몬 스레드는 주 스레드의 작업을 돕는 보조 스레드이다.   
+따라서 주 스레드가 종료되면 같이 종료된다.   
+ex) 워드프로세서의 자동 저장 기능, 미디어 플레이어의 동영상 재생, JVM의 가비지 컬렉터   
+### 호출 방법
+주 스레드가 데몬스레드가 될 스레드의 setDaemon(true)를 호출해주면 된다.   
+```java
+public static void main(String[] args) {
+  AutoSaveThread thread = new AutoSaveThread();
+  thread.setDaemon(true);
+  thread.start();
+}
+```
+꼭 setDaemon(true)를 호출하고 나서 start()를 호출해줘야 한다.   
+
+## 스레드 그룹
+
 
 
 
