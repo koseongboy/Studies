@@ -1,7 +1,13 @@
-var x = 1;
+const x = 1;
 
-if (true) {
-  let x = 3;
+function foo() {
+  const x = 10;
+  bar();
 }
 
-console.log(x);
+function bar() {
+  console.log(x);
+}
+
+foo();
+bar();
