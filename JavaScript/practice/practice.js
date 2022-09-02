@@ -1,13 +1,7 @@
-const x = 1;
-
-function foo() {
-  const x = 10;
-  bar();
+class Person {
+  constructor() {
+    super();
+  }
 }
 
-function bar() {
-  console.log(x);
-}
-
-foo();
-bar();
+const me = new Person();
