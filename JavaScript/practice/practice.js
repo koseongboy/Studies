@@ -1,7 +1,15 @@
-class Person {
-  constructor() {
-    super();
-  }
-}
+const base = {
+  name: "Lee",
+  sayHi: function () {
+    return "Hi!";
+  },
+};
 
-const me = new Person();
+const derived = {
+  __proto__: base,
+  sayHi() {
+    return `${super.sayHi()} How are you doing?`;
+  },
+};
+
+console.log(derived.sayHi());
