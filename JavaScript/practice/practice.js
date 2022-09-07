@@ -1,3 +1,5 @@
-const arr = ["hello", "world"];
+const target = "A AA AAA Ab AAB AAAB";
 
-arr.flatMap()
+const regExp = /A+/g;
+
+console.log(target.match(regExp));
