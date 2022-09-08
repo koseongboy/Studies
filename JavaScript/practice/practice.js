@@ -1,5 +1,6 @@
-const target = "A AA AAA Ab AAB AAAB";
+const user = { firstName: "Seonghyeon", lastName: "Ko" };
+const { lastName, firstName } = user;
+const { fN, lN } = user;
 
-const regExp = /A+/g;
-
-console.log(target.match(regExp));
+console.log(firstName + lastName);
+console.log(fN + lN);
