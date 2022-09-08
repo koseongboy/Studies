@@ -135,7 +135,7 @@ console.log(arr1); //[1, 2] (원본 배열은 변하지 않는다.)
 
 8. Array.prototype.splice(start, deleteCount, ...items): 배열의 중간에 요소를 추가하거나 중간의 요소를 제거할 때 사용. start: 배열의 요소를 제거하기 시작할 인덱스. deleteCount: start 부터 몇 개를 제거할 지 넘김 (0도 가능, 옵션). items: 제거한 위치에 삽입할 요소들의 목록(옵션)
 
-9. Array.prototype.slice(start, end = this.length): 전달된 범위의 배열을 복사해 반환한다. 원본 배열은 변하지 않는다. start: 시작할 인덱스, end: 종료할 인덱스(해당 인덱스는 포함하지 않고 복사). 얕은 복사를 수행한다.
+9. Array.prototype.slice(start = 0, end = this.length): 전달된 범위의 배열을 복사해 반환한다. 원본 배열은 변하지 않는다. start: 시작할 인덱스, end: 종료할 인덱스(해당 인덱스는 포함하지 않고 복사). 얕은 복사를 수행한다.
 
 10. Array.prototype.join(separator = ','): 배열을 모두 separator로 이은 문자열로 반환. 원본 배열은 변하지 않음.
 
