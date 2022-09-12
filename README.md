@@ -8,3 +8,5 @@ DOM 부분 등은 정리 스킵
 REST API의 경우 json-server-exam 디렉토리에 실습 내용 有  
 에러 처리 부분 정리 스킵  
 Babel, Webpack 부분은 실습(esnext-project 디렉토리)
+
+## 3. 타입스크립트 공부 (인프런 강의, 노마드코더 강의)
