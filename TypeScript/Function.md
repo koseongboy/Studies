@@ -12,4 +12,39 @@ function getText(name: string, language?: string, age: number = 15): string {}
 
 //rest 파라미터
 function getText(name: string, ...rest: nubmer[]): string {}
+
+//this 타입 정의: 첫 매개변수로 this의 타입을 정할 수 있음
+function getParam(this: string, index: number): string {}
+
+//함수 오버로딩
+function add(x: number, y: number): number;
+function add(x: string, y: string): string;
+function add(x: number | string, y: number | string): number | string {
+  if (typeof x === "number" && typeof y === "number") {
+    return x + y;
+  } else {
+    const result = Number(x) + Number(y);
+    return result.toString();
+  }
+}
+
+//네임드 파라미터: 매개변수로 오브젝트 전달
+function getText({
+  name,
+  age = 15,
+  language,
+}: {
+  name: string;
+  age?: number;
+  language?: string;
+}): string {}
+
+//네임드 파라미터의 타입 정보를 인터페이스로 저장해놓을 수 있음
+interface Param {
+  name: string;
+  age?: number;
+  language?: string;
+}
+
+function getText({name, age = 15, language}: Param): string { }
 ```

@@ -1,7 +1,3 @@
-import { f1 } from "./2";
+function getText({ name, age = 15 }: { name: string; age?: number; }) {
 
-const v1: number = 123;
-const v2 = () => console.log("123");
-
-f1();
-v2();
+}
