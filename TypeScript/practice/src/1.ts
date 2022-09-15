@@ -1,3 +1,5 @@
-function getText({ name, age = 15 }: { name: string; age?: number; }) {
-
+interface Person {
+  name: string;
+  readonly height: number; //재할당 불가
+  [asd: string]: string | number;
 }
