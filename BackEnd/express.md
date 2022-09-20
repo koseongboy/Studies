@@ -19,3 +19,56 @@ app.use((req, res, next) => {
 ```
 
 사전적으로 검사해주는 느낌
+
+## READ
+
+```typescript
+//고양이 읽기
+app.get("/cats", (req, res) => {
+  try {
+    const cats = Cat;
+    res.status(200).send({
+      success: true,
+      data: {
+        cats,
+      },
+    });
+  } catch (e) {
+    res.status(400).send({
+      success: false,
+      error: (e as Error).message,
+    });
+  }
+});
+```
+
+## CREATE
+
+express에서 json을 post할 때는 따로 미들웨어를 처리해줘야 한다.
+
+### 미들웨어
+
+```typescript
+app.use(express.json());
+```
+
+### post
+
+```typescript
+//* CREATE 고양이
+app.post("/cats", (req, res) => {
+  try {
+    const data = req.body;
+    Cat.push(data); //db에 저장해주면 됨
+    res.status(200).send({
+      success: true,
+      data: { data },
+    });
+  } catch (e) {
+    res.status(400).send({
+      success: false,
+      error: (e as Error).message,
+    });
+  }
+});
+```
