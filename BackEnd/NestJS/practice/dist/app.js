@@ -2,12 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var app = express();
-var port = 8000;
-app.get("/", function (req, res) {
-    console.log(req);
-    res.send({ hello: "world" });
+app.use(function (req, res, next) {
+    console.log(req.rawHeaders[1]);
+    console.log("this is logging middleware");
+    next();
 });
-app.listen(port, function () {
-    console.log("Example app listening on port http://localhost:" + port);
+app.use(function (req, res, next) {
+    console.log("this is error middleware");
+    res.send({ error: "404 not found error" });
 });
 //# sourceMappingURL=app.js.map

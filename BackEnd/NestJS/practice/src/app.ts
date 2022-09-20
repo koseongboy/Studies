@@ -1,14 +1,18 @@
 import * as express from "express";
+import { Cat, CatType } from "./app.model";
 
 const app: express.Express = express();
 
-const port: number = 8000;
-
-app.get("/", (req: express.Request, res: express.Response) => {
-  console.log(req);
-  res.send({ hello: "world" });
+//* logging middleware
+app.use((req, res, next) => {
+  console.log(req.rawHeaders[1]);
+  console.log("this is logging middleware");
+  next();
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+
+//* 404 middleware
+app.use((req, res, next) => {
+  console.log("this is error middleware");
+  res.send({ error: "404 not found error" });
 });
