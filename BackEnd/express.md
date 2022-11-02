@@ -1,5 +1,14 @@
 # express 짤막하게 필기
 
+## Express on Typescript 타입들
+
+app의 타입: express.Express
+
+### app.get에서
+
+req(request 타입): express.Request
+res(response 타입): express.Resopnse
+
 ## 라우터
 
 라우터를 통해 서버는 클라이언트/프론트엔드 에서 요청을 받는다.  
