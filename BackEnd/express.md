@@ -14,6 +14,8 @@ res(response 타입): express.Resopnse
 라우터를 통해 서버는 클라이언트/프론트엔드 에서 요청을 받는다.  
 사용자가 보낸 요청에 대한 라우터가 서버에 없다면 오류가 뜬다.
 
+동적 라우터: get의 첫째 인수에 콜론을 붙이고 뒤에 이름 쓰면 변수처럼 작용함
+
 ## 미들웨어
 
 프론트엔드가 서버에 요청을 보내면 익스프레스는 라우터를 쭉 읽고 해당 요청에 대한 응답을 한다.  
@@ -45,53 +47,25 @@ app.use((req, res, next) => {
 
 ## READ
 
-```typescript
-//고양이 읽기
-app.get("/cats", (req, res) => {
-  try {
-    const cats = Cat;
-    res.status(200).send({
-      success: true,
-      data: {
-        cats,
-      },
-    });
-  } catch (e) {
-    res.status(400).send({
-      success: false,
-      error: (e as Error).message,
-    });
-  }
-});
-```
+위 예제랑 똑같지 뭐
 
 ## CREATE
 
 express에서 json을 post할 때는 따로 미들웨어를 처리해줘야 한다.
 
-### 미들웨어
-
 ```typescript
 app.use(express.json());
 ```
 
-### post
+## 라우터 모듈화
 
-```typescript
-//* CREATE 고양이
-app.post("/cats", (req, res) => {
-  try {
-    const data = req.body;
-    Cat.push(data); //db에 저장해주면 됨
-    res.status(200).send({
-      success: true,
-      data: { data },
-    });
-  } catch (e) {
-    res.status(400).send({
-      success: false,
-      error: (e as Error).message,
-    });
-  }
-});
-```
+새 파일에 라우터 분리하고 app.get 대신 express에서 router를 import해와서 router.get 등의 형태로 바꾸고 마지막에 export해준다.  
+매인 파일에서 해당 router을 import해주고 app.use의 매개변수로 넣어준다.
+
+## UPDATE
+
+전체 업데이트는 put, 부분 업데이트는 patch 사용
+
+## DELETE
+
+delete 사용
