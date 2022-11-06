@@ -156,6 +156,29 @@ promisGet(`${url}/posts/1`)
 
 콜백 패턴은 가독성이 좋지 않다. 이 문제는 ES8에서 도입된 async/await를 통해 해결할 수 있다.
 
+### async / await
+
+프로미스를 사용하는 함수(resolveAfter2Seconds) -> 비동기 처리됨 -> 기존 함수라면 result를 출력하고 프로미스 함수가 실행되지만 이를 기다리고 실행하는게 async/await
+
+```javascript
+function resolveAfter2Seconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("resolved");
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log("calling");
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+  // expected output: "resolved"
+}
+
+asyncCall();
+```
+
 ## 6. 프로미스의 정적 메소드
 
 ### 1. Promise.resolve / Promise.reject
